@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <IncludePath>$(SDK)\glew-2.0.0\include;$(SDK)\glm;$(SDK)\SDL2-2.0.4\include;$(SDK)\SDL2_image-2.0.1\include;$(SDK)\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SDK)\glew-2.0.0\lib\Release\Win32;$(SDK)\SDL2-2.0.4\lib\x86;$(SDK)\SDL2_image-2.0.1\lib\x86;$(SDK)\SDL2_ttf-2.0.14\lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <PostBuildEvent>
+      <Command>copy $(SDK)\glew-2.0.0\bin\Release\Win32\glew32.dll $(OutDir)
+copy $(SDK)\SDL2-2.0.4\lib\x86\SDL2.dll $(OutDir)
+copy $(SDK)\SDL2-2.0.4\lib\x86\zlib1.dll $(OutDir)
+copy $(SDK)\SDL2_image-2.0.1\lib\x86\SDL2_image.dll $(OutDir)
+copy $(SDK)\SDL2_image-2.0.1\lib\x86\libjpeg-9.dll $(OutDir)
+copy $(SDK)\SDL2_image-2.0.1\lib\x86\libpng16-16.dll $(OutDir)
+copy $(SDK)\SDL2_image-2.0.1\lib\x86\libtiff-5.dll $(OutDir)
+copy $(SDK)\SDL2_image-2.0.1\lib\x86\libwebp-4.dll $(OutDir)
+copy $(SDK)\SDL2_ttf-2.0.14\lib\x86\SDL2_ttf.dll $(OutDir)
+copy $(SDK)\SDL2_ttf-2.0.14\lib\x86\libfreetype-6.dll $(OutDir)</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;glew32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
