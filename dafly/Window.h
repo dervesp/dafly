@@ -1,9 +1,8 @@
 #pragma once
 #include "libutil.h"
-#include "IBody.h"
 #include "Lights.h"
-#include "Skybox.h"
 #include "Decorators.h"
+#include "LandscapeSurface.h"
 #include <vector>
 
 class CWindow : public CAbstractInputControlWindow
@@ -24,10 +23,8 @@ protected:
 private:
     void SetupView(const glm::ivec2 &size);
 
-    CPhongModelMaterial m_material;
-    CTexture2DUniquePtr m_pEarthTexture;
-    CAnimatedDecorator m_decoratedSphere;
-    std::unique_ptr<CSkybox> m_pSkybox;
+	CPhongModelMaterial m_material;
+	CLandscapeSurface m_landscape;
     CCamera m_camera;
     CDirectedLightSource m_sunlight;
 };

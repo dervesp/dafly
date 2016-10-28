@@ -9,19 +9,17 @@
 class CCamera : private boost::noncopyable
 {
 public:
-    explicit CCamera(float rotationRadians, float distance);
+    explicit CCamera();
 
     void Update(float deltaSec);
     bool OnKeyDown(const SDL_KeyboardEvent &event);
     bool OnKeyUp(const SDL_KeyboardEvent &event);
 
-    void SetDirection(const glm::vec3 &direction);
-
     glm::mat4 GetViewTransform() const;
 
 private:
-    glm::vec3 m_direction;
-    float m_rotationRadians = 0;
-    float m_distance = 1;
+	glm::vec3 m_position;
+	glm::quat m_direction;
+	float m_speed;
     std::set<unsigned> m_keysPressed;
 };

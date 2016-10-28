@@ -13,8 +13,11 @@
 #include <glm/vec4.hpp>
 #include <glm/mat3x3.hpp>
 #include <glm/mat4x4.hpp>
+#include <glm/matrix.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
+#include <glm/gtx/euler_angles.hpp>
 #include <SDL2/SDL_events.h>
 #include <SDL2/SDL_video.h>
 

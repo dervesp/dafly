@@ -55,13 +55,19 @@ public:
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 
-    void SwapBuffers()const
-    {
-        // Вывод нарисованного кадра в окно на экране.
-        // При этом система отдаёт старый буфер для рисования нового кадра.
-        // Обмен двух буферов вместо создания новых позволяет не тратить ресурсы впустую.
-        SDL_GL_SwapWindow(m_pWindow.get());
-    }
+	void SwapBuffers()const
+	{
+		// Вывод нарисованного кадра в окно на экране.
+		// При этом система отдаёт старый буфер для рисования нового кадра.
+		// Обмен двух буферов вместо создания новых позволяет не тратить ресурсы впустую.
+		SDL_GL_SwapWindow(m_pWindow.get());
+	}
+
+	void TrapMouse()const
+	{
+		SDL_SetRelativeMouseMode(SDL_TRUE);
+		SDL_ShowCursor(SDL_TRUE);
+	}
 
     bool ConsumeEvent(const SDL_Event &event)
     {
@@ -106,7 +112,8 @@ CAbstractWindow::~CAbstractWindow()
 
 void CAbstractWindow::Show(const std::string &title, const glm::ivec2 &size)
 {
-    m_pImpl->Show(title, size);
+	m_pImpl->Show(title, size);
+	m_pImpl->TrapMouse();
     OnWindowInit(size);
 }
 

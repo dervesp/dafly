@@ -58,23 +58,23 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\baseProject.props" />
-    <Import Project="..\opengl.props" />
+    <Import Project="..\props\baseProject.props" />
+    <Import Project="..\props\opengl.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\baseProject.props" />
-    <Import Project="..\opengl.props" />
+    <Import Project="..\props\baseProject.props" />
+    <Import Project="..\props\opengl.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\baseProject.props" />
-    <Import Project="..\opengl.props" />
+    <Import Project="..\props\baseProject.props" />
+    <Import Project="..\props\opengl.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\baseProject.props" />
-    <Import Project="..\opengl.props" />
+    <Import Project="..\props\baseProject.props" />
+    <Import Project="..\props\opengl.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Decorators.h" />
+    <ClInclude Include="LandscapeSurface.h" />
     <ClInclude Include="IBody.h" />
     <ClInclude Include="IdentityCube.h" />
     <ClInclude Include="IdentitySphere.h" />
@@ -177,6 +178,7 @@
   <ItemGroup>
     <ClCompile Include="dafly.cpp" />
     <ClCompile Include="Decorators.cpp" />
+    <ClCompile Include="LandscapeSurface.cpp" />
     <ClCompile Include="IdentityCube.cpp" />
     <ClCompile Include="IdentitySphere.cpp" />
     <ClCompile Include="Lights.cpp" />

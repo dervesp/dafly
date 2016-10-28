@@ -58,23 +58,23 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\baseProject.props" />
-    <Import Project="..\opengl.props" />
+    <Import Project="..\props\baseProject.props" />
+    <Import Project="..\props\opengl.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\baseProject.props" />
-    <Import Project="..\opengl.props" />
+    <Import Project="..\props\baseProject.props" />
+    <Import Project="..\props\opengl.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\baseProject.props" />
-    <Import Project="..\opengl.props" />
+    <Import Project="..\props\baseProject.props" />
+    <Import Project="..\props\opengl.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\baseProject.props" />
-    <Import Project="..\opengl.props" />
+    <Import Project="..\props\baseProject.props" />
+    <Import Project="..\props\opengl.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
@@ -147,6 +147,7 @@
     <ClCompile Include="src\FloatRect.cpp" />
     <ClCompile Include="src\Ray.cpp" />
     <ClCompile Include="src\Texture2D.cpp" />
+    <ClCompile Include="src\Transform3D.cpp" />
     <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +162,7 @@
     <ClInclude Include="src\libutil_private.h" />
     <ClInclude Include="src\Ray.h" />
     <ClInclude Include="src\Texture2D.h" />
+    <ClInclude Include="src\Transform3D.h" />
     <ClInclude Include="src\Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
