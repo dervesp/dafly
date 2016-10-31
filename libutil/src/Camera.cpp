@@ -52,11 +52,11 @@ float GetThrottleChangeSpeed(std::set<unsigned> & keysPressed)
 
 float GetYawRotationSpeedRadians(std::set<unsigned> & keysPressed)
 {
-	if (keysPressed.count(SDLK_e))
+	if (keysPressed.count(SDLK_d))
 	{
 		return +ROTATION_SPEED_RADIANS;
 	}
-	if (keysPressed.count(SDLK_q))
+	if (keysPressed.count(SDLK_a))
 	{
 		return -ROTATION_SPEED_RADIANS;
 	}
@@ -78,11 +78,11 @@ float GetPitchRotationSpeedRadians(std::set<unsigned> & keysPressed)
 
 float GetRollRotationSpeedRadians(std::set<unsigned> & keysPressed)
 {
-	if (keysPressed.count(SDLK_d))
+	if (keysPressed.count(SDLK_e))
 	{
 		return +ROTATION_SPEED_RADIANS;
 	}
-	if (keysPressed.count(SDLK_a))
+	if (keysPressed.count(SDLK_q))
 	{
 		return -ROTATION_SPEED_RADIANS;
 	}
@@ -93,6 +93,7 @@ float GetRollRotationSpeedRadians(std::set<unsigned> & keysPressed)
 
 CCamera::CCamera()
 	: m_position({0.f, 10.f, 0.f})
+	, m_direction(glm::quat_cast(glm::yawPitchRoll(0.f, 0.f, float(M_PI))))
 {
 }
 

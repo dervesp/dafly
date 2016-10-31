@@ -7,13 +7,14 @@
 #include <glm/vec3.hpp>
 
 // Вершина с трёхмерной позицией и нормалью.
-struct SVertexP3N
+struct SVertexP3NC
 {
     glm::vec3 position;
     glm::vec3 normal;
+    glm::vec3 color;
 
-    SVertexP3N() = default;
-    SVertexP3N(const glm::vec3 &position)
+    SVertexP3NC() = default;
+    SVertexP3NC(const glm::vec3 &position)
         : position(position)
     {
     }
@@ -32,6 +33,6 @@ public:
     void Draw() const final;
 
 private:
-    std::vector<SVertexP3N> m_vertices;
+    std::vector<SVertexP3NC> m_vertices;
     std::vector<uint32_t> m_indicies;
 };

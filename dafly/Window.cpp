@@ -23,10 +23,10 @@ void SetupOpenGLState()
     //glCullFace(GL_BACK);
 
     // включаем систему освещения
-    glEnable(GL_LIGHTING);
+    //glEnable(GL_LIGHTING);
 
     // включаем текстурирование в старом стиле (OpenGL 1.1)
-    glEnable(GL_TEXTURE_2D);
+    //glEnable(GL_TEXTURE_2D);
 }
 }
 
@@ -36,10 +36,10 @@ CWindow::CWindow()
     SetBackgroundColor(SKYBLUE);
 
 	const glm::vec4 WHITE_RGBA = { 1, 1, 1, 1 };
-	m_material.SetAmbient(GRASS_GREEN_RGBA);
-	m_material.SetDiffuse(GRASS_GREEN_RGBA);
-	m_material.SetSpecular(FADED_WHITE_RGBA);
-	m_material.SetShininess(MATERIAL_SHININESS);
+	//m_material.SetAmbient(GRASS_GREEN_RGBA);
+	//m_material.SetDiffuse(GRASS_GREEN_RGBA);
+	//m_material.SetSpecular(FADED_WHITE_RGBA);
+	//m_material.SetShininess(MATERIAL_SHININESS);
 
 	m_landscape.Tesselate({ -1000, 1000 }, { -1000, 1000 }, 10.f);
 
@@ -66,8 +66,8 @@ void CWindow::OnDrawWindow(const glm::ivec2 &size)
     SetupView(size);
 
     m_sunlight.Setup();
-	m_material.Setup();
 	m_landscape.Draw();
+	//m_material.Setup();
 }
 
 void CWindow::SetupView(const glm::ivec2 &size)
@@ -84,7 +84,7 @@ void CWindow::SetupView(const glm::ivec2 &size)
     const float fieldOfView = glm::radians(70.f);
     const float aspect = float(size.x) / float(size.y);
     const float zNear = 0.01f;
-    const float zFar = 1000.f;
+    const float zFar = 4000.f;
     const glm::mat4 proj = glm::perspective(fieldOfView, aspect, zNear, zFar);
     glMatrixMode(GL_PROJECTION);
     glLoadMatrixf(glm::value_ptr(proj));
