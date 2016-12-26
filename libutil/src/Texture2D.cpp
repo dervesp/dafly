@@ -17,7 +17,7 @@ namespace
 {
 GLenum ConvertEnum(TextureWrapMode mode)
 {
-	// Значение константы взято от GL_CLAMP_TO_EDGE_EXT библиотеки GLEW.
+    // Значение константы взято от GL_CLAMP_TO_EDGE_EXT библиотеки GLEW.
 #if defined(_WIN32) && !defined(GL_CLAMP_TO_EDGE)
 #define GL_CLAMP_TO_EDGE 0x812F
 #endif
@@ -52,7 +52,7 @@ public:
     void Parse()
     {
         const std::string xml = CFilesystemUtils::LoadFileAsString(m_xmlPath);
-		xml::XMLDocument document;
+        xml::XMLDocument document;
         m_error = document.Parse(xml.c_str(), xml.length());
         CheckError();
 
@@ -162,7 +162,7 @@ private:
     MetaHandler m_onParsedTextureMeta;
     FrameHandler m_onParsedFrame;
     std::string m_xmlPath;
-	xml::XMLError m_error = xml::XML_SUCCESS;
+    xml::XMLError m_error = xml::XML_SUCCESS;
 };
 }
 
@@ -201,7 +201,7 @@ void CTexture2D::Unbind()
 
 CTexture2DUniquePtr CTexture2DLoader::Load(const path &path)
 {
-    SDLSurfacePtr pSurface = CFilesystemUtils::LoadImage(path);
+    SDLSurfacePtr pSurface = CFilesystemUtils::LoadFileImage(path);
     const glm::ivec2 surfaceSize = { pSurface->w, pSurface->h };
     const bool hasAlpha = SDL_ISPIXELFORMAT_ALPHA(pSurface->format->format);
 
@@ -235,14 +235,14 @@ CTexture2DUniquePtr CTexture2DLoader::Load(const path &path)
 
 void CTexture2DLoader::SetWrapMode(TextureWrapMode wrap)
 {
-	m_wrapS = wrap;
-	m_wrapT = wrap;
+    m_wrapS = wrap;
+    m_wrapT = wrap;
 }
 
 void CTexture2DLoader::SetWrapMode(TextureWrapMode wrapS, TextureWrapMode wrapT)
 {
-	m_wrapS = wrapS;
-	m_wrapT = wrapT;
+    m_wrapS = wrapS;
+    m_wrapT = wrapT;
 }
 
 CTexture2DAtlas::CTexture2DAtlas(const path &xmlPath, CTexture2DLoader loader)

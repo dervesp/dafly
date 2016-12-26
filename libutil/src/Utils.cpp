@@ -14,22 +14,33 @@ void CUtils::InitOnceSDL2()
 	static bool didInit = false;
 	if (!didInit)
 	{
-        // В случае успеха возвращается 0.
-        if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
+		const int status = SDL_Init(SDL_INIT_EVERYTHING);
+		if (status != 0)
 		{
 			ValidateSDL2Errors();
 		}
-        const int imageFlags = IMG_INIT_JPG | IMG_INIT_PNG;
-        // В случае успеха возвращается переданный параметр flags.
-        if (IMG_Init(imageFlags) != imageFlags)
-        {
-            ValidateSDL2Errors();
-        }
-        // В случае успеха возвращается 0.
-        if (TTF_Init() != 0)
-        {
-            ValidateSDL2Errors();
-        }
+	}
+}
+
+void CUtils::InitOnceGLEW()
+{
+	static bool didInit = false;
+	if (!didInit)
+	{
+		glewExperimental = GL_TRUE;
+		GLenum status = glewInit();
+		if (status != GLEW_OK)
+		{
+            const std::string errorStr = reinterpret_cast<const char *>(glewGetErrorString(status));
+            throw std::runtime_error("GLEW initialization failed: "
+                                     + errorStr);
+		}
+
+        // GLEW при инициализации использует вызов glGetString,
+        //   недопустимый для Core Profile.
+        // Вызываем glGetError(), чтобы очистить буфер ошибки OpenGL.
+        //   http://stackoverflow.com/questions/10857335/
+        glGetError();
 	}
 }
 
@@ -37,9 +48,8 @@ void CUtils::ValidateSDL2Errors()
 {
 	std::string message = SDL_GetError();
 	if (!message.empty())
-	{
-		std::cerr << "SDL2 error: " << message << std::endl;
-		std::abort();
+    {
+        throw std::runtime_error("SDL2 error: " + message);
 	}
 }
 
@@ -73,9 +83,8 @@ void CUtils::ValidateOpenGLErrors()
 			message = "error in some GL extension (framebuffers, shaders, etc)";
 			break;
 		}
-		std::cerr << "OpenGL error: " << message << std::endl;
-		std::abort();
-    }
+        throw std::runtime_error("OpenGL error: " + message);
+	}
 }
 
 void CUtils::FlipSurfaceVertically(SDL_Surface &surface)

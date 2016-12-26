@@ -2,11 +2,12 @@
 
 #ifdef _WIN32
 #define _USE_MATH_DEFINES
-#define _CRT_SECURE_NO_WARNINGS
 #include <Windows.h>
 #endif
 
+#include <GL/glew.h>
 #include <GL/gl.h>
+
 #define GLM_FORCE_RADIANS
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>

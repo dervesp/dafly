@@ -6,33 +6,16 @@
 #include <glm/fwd.hpp>
 #include <glm/vec3.hpp>
 
-// Вершина с трёхмерной позицией и нормалью.
-struct SVertexP3NC
-{
-    glm::vec3 position;
-    glm::vec3 normal;
-    glm::vec3 color;
-
-    SVertexP3NC() = default;
-    SVertexP3NC(const glm::vec3 &position)
-        : position(position)
-    {
-    }
-};
-
-class CLandscapeSurface final : public ISceneObject
+class CLandscapeSurface final : public ICollidableObject
 {
 public:
-    /// Инициализирует индексированную сетку треугольников
-    /// @param rangeX - диапазон, где x - нижняя граница, y - верхняя граница
-    /// @param rangeZ - диапазон, где x - нижняя граница, y - верхняя граница
-    void Tesselate(const glm::vec2 &rangeX, const glm::vec2 &rangeZ, float step);
-
-    // IBody interface.
-    void Update(float) final {}
-    void Draw() const final;
+	CLandscapeSurface(float scale);
+	void Draw(IRenderer3D &renderer)const;
+	bool CheckCollision(const glm::vec3 & position)const;
 
 private:
-    std::vector<SVertexP3NC> m_vertices;
-    std::vector<uint32_t> m_indicies;
+	CMeshP3NT2 m_mesh;
+	std::vector<SVertexP3NT2> m_surfaceData;
+	float m_scale;
+	glm::ivec2 m_size;
 };

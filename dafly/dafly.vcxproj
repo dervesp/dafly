@@ -163,39 +163,46 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Decorators.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="ControlledActor.h" />
+    <ClInclude Include="Gun.h" />
+    <ClInclude Include="ICollider.h" />
+    <ClInclude Include="ProgramContext.h" />
+    <ClInclude Include="Renderer3D.h" />
     <ClInclude Include="LandscapeSurface.h" />
-    <ClInclude Include="IBody.h" />
-    <ClInclude Include="IdentityCube.h" />
-    <ClInclude Include="IdentitySphere.h" />
-    <ClInclude Include="Lights.h" />
-    <ClInclude Include="MeshP3NT2.h" />
-    <ClInclude Include="Skybox.h" />
+    <ClInclude Include="SkyCap.h" />
+    <ClInclude Include="SkyFloor.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="WindowClient.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="ControlledActor.cpp" />
     <ClCompile Include="dafly.cpp" />
-    <ClCompile Include="Decorators.cpp" />
+    <ClCompile Include="Gun.cpp" />
+    <ClCompile Include="ProgramContext.cpp" />
+    <ClCompile Include="Renderer3D.cpp" />
     <ClCompile Include="LandscapeSurface.cpp" />
-    <ClCompile Include="IdentityCube.cpp" />
-    <ClCompile Include="IdentitySphere.cpp" />
-    <ClCompile Include="Lights.cpp" />
-    <ClCompile Include="MeshP3NT2.cpp" />
-    <ClCompile Include="Skybox.cpp" />
+    <ClCompile Include="SkyCap.cpp" />
+    <ClCompile Include="SkyFloor.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="WindowClient.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\libutil\libutil.vcxproj">
       <Project>{f04d5e94-94a4-44b8-a537-91adc732b8d0}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="res\phong.frag" />
+    <None Include="res\phong.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

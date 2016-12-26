@@ -5,6 +5,7 @@
 #include <Windows.h>
 #endif
 
+#include <GL/glew.h>
 #include <GL/gl.h>
 
 #define GLM_FORCE_RADIANS

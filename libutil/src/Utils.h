@@ -1,5 +1,4 @@
 ﻿#pragma once
-
 #include <memory>
 #include <chrono>
 #include <glm/fwd.hpp>
@@ -13,17 +12,17 @@ namespace detail
 {
 struct SDLWindowDeleter
 {
-    void operator()(SDL_Window *ptr)
-    {
-        SDL_DestroyWindow(ptr);
-    }
+	void operator()(SDL_Window *ptr)
+	{
+		SDL_DestroyWindow(ptr);
+	}
 };
 struct SDLGLContextDeleter
 {
-    void operator()(SDL_GLContext ptr)
-    {
-        SDL_GL_DeleteContext(ptr);
-    }
+	void operator()(SDL_GLContext ptr)
+	{
+		SDL_GL_DeleteContext(ptr);
+	}
 };
 struct SDLSurfaceDeleter
 {
@@ -53,6 +52,7 @@ public:
 	CUtils() = delete;
 
 	static void InitOnceSDL2();
+	static void InitOnceGLEW();
 	static void ValidateSDL2Errors();
 	static void ValidateOpenGLErrors();
 

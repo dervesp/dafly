@@ -14,11 +14,11 @@ using CTexture2DUniquePtr = std::unique_ptr<CTexture2D>;
 
 enum class TextureWrapMode
 {
-	REPEAT,
-	CLAMP_TO_EDGE,
+    REPEAT,
+    CLAMP_TO_EDGE,
 
-	// Значение по умолчанию в OpenGL - GL_REPEAT.
-	DEFAULT_VALUE = REPEAT,
+    // Значение по умолчанию в OpenGL - GL_REPEAT.
+    DEFAULT_VALUE = REPEAT,
 };
 
 /// Класс владеет текстурой типа GL_TEXTURE_2D,

@@ -1,27 +1,22 @@
 #include "stdafx.h"
-#include "Window.h"
+#include "WindowClient.h"
 #include <SDL2/SDL.h>
-
-namespace
-{
-const glm::ivec2 WINDOW_SIZE = {800, 600};
-const char WINDOW_TITLE[] = "DaFly fly simulator";
-const char ERROR_TITLE[] = "Fatal Error";
-}
 
 int main(int, char *[])
 {
-    try
-    {
-        CWindow window;
-        window.Show(WINDOW_TITLE, WINDOW_SIZE);
-        window.DoGameLoop();
-    }
-    catch (const std::exception &ex)
-    {
-        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, ERROR_TITLE,
-                                 ex.what(), nullptr);
-    }
+	try
+	{
+		CWindow window(ContextProfile::RobustOpenGL_3_2, ContextMode::Debug);
+		window.Show("DaFly fly simulator", { 1100, 700 });
+		CWindowClient client(window);
+		window.DoMainLoop();
+	}
+	catch (const std::exception &ex)
+	{
+		const char *title = "Fatal Error";
+		const char *message = ex.what();
+		SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, title, message, nullptr);
+	}
 
-    return 0;
+	return 0;
 }

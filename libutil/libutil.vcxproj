@@ -140,30 +140,46 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="3rd_party\tinyxml2.cpp" />
-    <ClCompile Include="src\AbstractWindow.cpp" />
-    <ClCompile Include="src\Camera.cpp" />
-    <ClCompile Include="src\DispatchEvent.cpp" />
+    <ClCompile Include="src\AbstractWindowClient.cpp" />
+    <ClCompile Include="src\ArrayObject.cpp" />
+    <ClCompile Include="src\BufferObject.cpp" />
     <ClCompile Include="src\FilesystemUtils.cpp" />
     <ClCompile Include="src\FloatRect.cpp" />
-    <ClCompile Include="src\Ray.cpp" />
+    <ClCompile Include="src\ActorCamera.cpp" />
+    <ClCompile Include="src\Lights.cpp" />
+    <ClCompile Include="src\MeshP3NT2.cpp" />
+    <ClCompile Include="src\ProgramInfo.cpp" />
+    <ClCompile Include="src\ProgramUniform.cpp" />
+    <ClCompile Include="src\ShaderProgram.cpp" />
     <ClCompile Include="src\Texture2D.cpp" />
     <ClCompile Include="src\Transform3D.cpp" />
     <ClCompile Include="src\Utils.cpp" />
+    <ClCompile Include="src\VertexAttribute.cpp" />
+    <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3rd_party\tinyxml2.h" />
     <ClInclude Include="libutil.h" />
-    <ClInclude Include="src\AbstractWindow.h" />
-    <ClInclude Include="src\Camera.h" />
-    <ClInclude Include="src\DispatchEvent.h" />
+    <ClInclude Include="src\AbstractWindowClient.h" />
+    <ClInclude Include="src\ArrayObject.h" />
+    <ClInclude Include="src\BufferObject.h" />
     <ClInclude Include="src\FilesystemUtils.h" />
     <ClInclude Include="src\FloatRect.h" />
-    <ClInclude Include="src\ISceneObject.h" />
+    <ClInclude Include="src\ActorCamera.h" />
+    <ClInclude Include="src\IActor.h" />
+    <ClInclude Include="src\ICollidableObject.h" />
+    <ClInclude Include="src\IRenderer3D.h" />
     <ClInclude Include="src\libutil_private.h" />
-    <ClInclude Include="src\Ray.h" />
+    <ClInclude Include="src\Lights.h" />
+    <ClInclude Include="src\MeshP3NT2.h" />
+    <ClInclude Include="src\ProgramInfo.h" />
+    <ClInclude Include="src\ProgramUniform.h" />
+    <ClInclude Include="src\ShaderProgram.h" />
     <ClInclude Include="src\Texture2D.h" />
     <ClInclude Include="src\Transform3D.h" />
     <ClInclude Include="src\Utils.h" />
+    <ClInclude Include="src\VertexAttribute.h" />
+    <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
